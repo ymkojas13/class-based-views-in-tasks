@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online course registration form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v4.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<br><br><br>
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col-sm-8 align="center">
+
+        <h4 class="text-center alert alert-info"> Add online course registration </h4>
+
+             <form action="" method="POST">
+                 {% csrf_token %}
+                  <table style="width:200px;">
+                      {{form.as_p}}
+                  </table><br><br><br>
+                 <input type="submit" class="btn btn-success" value="Register">
+
+                 {% if messages %}
+        {% for message in messages %}
+        <span {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</span>
+                 {% endfor %}
+                 {% endif %}
+
+
+             </form><br>
+    <p>  <form action="{% url 'profile' %}" method="POST" class="d-inline" >{% csrf_token %}
+                       <input type="submit" class="btn btn-warning" value="Admin Home"></p>
+
+
+                   </form>
+
+
+        <br><br><br>
+    </div>
+      <div>
+      <h4 class="text-center alert alert-info"> Show data </h4>
+          {% if dataa %}
+
+      </div>
+  <div class="col">
+        <table class="table table-hover">
+  <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">contact</th>
+
+      <th scope="col">Software course</th>
+      <th scope="col">Edit/delete</th>
+    </tr>
+  </thead>
+
+            <tbody>
+            {% for data in dataa %}
+
+            <tr>
+                <th scope="row">{{data.id}}</th>
+                <th >{{data.Firstname}}</th>
+                <td>{{data.Email}}</td>
+                <td>{{data.Contact}}</td>
+                <td>{{data.Software_courses}}</td>
+                <td>
+                    <a href="{% url 'updatedata' data.id %}" class="btn btn-warning btn-sm">Edit</a>
+                   <form action="{% url 'deletedata' data.id %}" method="POST" class="d-inline" >{% csrf_token %}
+                       <input type="submit" class="btn btn-danger" value="Delete">
+
+
+                   </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+
+</table>
+      {% else %}
+      <h4 class="text-center alert alert-warning"> No records  </h4>
+      {% endif %}
+  </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+{% endblock %}

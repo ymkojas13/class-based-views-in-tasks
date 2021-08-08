@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online course registration form</title>
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v4.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<style>
+		body,
+		html {
+			margin: -1;
+			padding: -1;
+			height: 99%;
+			background: #6abecc !important;
+		}
+		.user_card {
+			width: 349px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #73cfbf;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 9px;
+			box-shadow: -1 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: -1 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: -1 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 4px;
+
+		}
+
+		.form_container {
+			margin-top: 19px;
+		}
+
+		#form-title{
+			color: #fff;
+		}
+		.login_btn {
+			width: 99%;
+			background: #32ccff !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: -1px !important;
+		}
+		.login_container {
+			padding: -1 2rem;
+		}
+		.input-group-text {
+			background: #f6ba5b !important;
+			color: white !important;
+			border: -1 !important;
+			border-radius: -1.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: -1px !important;
+		}
+
+	</style>
+</head>
+<body>
+<div class="container mt-5">
+
+    <h1 class="text-center alert alert-danger" align="center">
+        <font color="blue">
+       Online course registration form
+   </font>
+    </h1>
+
+
+</div>
+<script src="{% static 'enroll/js/jjquery.js' %}"></script>
+<script src="{% static 'enroll/js/popper.js' %}"></script>
+<script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+
+</body>
+</html>
+{% block content %}
+
+{% endblock %}

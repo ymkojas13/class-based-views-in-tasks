@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+  <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v4.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+</head>
+<body>
+<script src="{% static 'enroll/js/jjquery.js' %}"></script>
+<script src="{% static 'enroll/js/popper.js' %}"></script>
+<script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+<div class="container">
+  <div class="row align-items-center">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+    <h3 class="text-center alert alert-info"> <font color="blue">Admin Login </font></h3><center>
+
+<form action="" method="POST" novalidate>
+                    <span style="color:yellow;">
+                  {% csrf_token %}
+                  {% if form.non_field_errors %}
+                  {% for error in form.non_field_errors %}
+
+                  <p class="er">{{error}}</p>
+                  {% endfor %}
+                  {% endif %}
+                <table>
+                  {% for fm in form %}
+                    <tr><td><p>{{fm.label_tag}}</p></td> <td><p>{{fm}}</p> </td><td><p>{{fm.errors|striptags}}</p></td></tr>
+                    {% endfor %}</table>
+ <input type="submit" class="btn btn-success" value="Login"> <br><br>
+
+</form><br>
+
+<a href="{% url 'signup' %}"><input type="button" class="btn btn-success" value="Sign Up"></a></center>
+     </div>
+  </div>
+    <br><br>
+
+{% if messages %}
+{% for message in messages %}
+<span style="color:green;">
+  {{message}}
+</span>
+{% endfor %}
+{% endif %}
+
+
+
+</div>
+
+
+</body>
+</html>
+{% endblock %}
